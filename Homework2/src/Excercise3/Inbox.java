@@ -44,7 +44,7 @@ public class Inbox {
 				ind = "new";
 			}
 			System.out.println(i + "| " + ind + " | " + mail.getSubject() + " | " + mail.getSenderAdress() + " | "
-					+ mail.getTime().toString());
+					+ mail.getTime().toString().substring(0, 19));
 			i++;
 		}
 	}

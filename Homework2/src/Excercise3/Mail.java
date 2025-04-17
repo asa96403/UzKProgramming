@@ -25,6 +25,27 @@ public class Mail {
 		this.time= LocalDateTime.now();
 	}
 	
+	/**
+	 * Constructor for Mail. Read is set to false as default.
+	 * You can set the datetime yourself.
+	 * @param sender the E-mail Address of the sender
+	 * @param message the message to send
+	 * @param subject the subject of the email
+	 * @param year Year of sending
+	 * @param month Month of sending
+	 * @param dayOfMonth Day of Month of sending
+	 * @param hour Hour of sending(24 hour system)
+	 * @param min minute of sending
+	 * @param sec second of sending
+	 */
+	public Mail(String sender, String message, String subject, int year, int month, int dayOfMonth, int hour, int min, int sec) {
+		this.senderAdress=sender;
+		this.message=message;
+		this.subject=subject;
+		this.read=false;
+		this.time= LocalDateTime.of(year, month, dayOfMonth, hour, min, sec);
+	}
+	
 	//METHODS
 	
 	/**
@@ -41,7 +62,7 @@ public class Mail {
 	 * @author aabert
 	 */
 	public void print() {
-		System.out.println(subject + " from " + senderAdress  + " on " + time.toString()  + ":\n" + message);
+		System.out.println(subject + " from " + senderAdress  + " on " + time.toString().substring(0, 19)  + ":\n" + message);
 	}
 	
 	/**
@@ -52,7 +73,7 @@ public class Mail {
 	
 	//GETTERS AND SETTERS
 	public String toString() {
-		return subject + " from " + senderAdress  + " on " + time.toString()  + ":\n" + message;
+		return subject + " from " + senderAdress  + " on " + time.toString().substring(0, 19)  + ":\n" + message;
 	}
 
 	public String getSenderAdress() {
